@@ -1,39 +1,32 @@
 <template>
-  <div>
-    <!-- 无子级 -->
+  <div >
+    <!-- 没有子级 -->
     <el-menu-item :index="item.url" v-if="!item.children">
       <i :class="item.icon"></i>
       <span slot="title">{{item.title}}</span>
     </el-menu-item>
 
     <!-- 有子级 -->
-    <el-submenu :index="item.url" v-else>
+    <el-submenu :index="item.url"  v-else>
       <template slot="title">
-        <i :class="item.icon"></i>
+        <i class="el-icon-menu"></i>
         <span slot="title">{{item.title}}</span>
       </template>
-
-      <sideItem v-for="item in item.children" :key="item.url" :item="item"/>
-      
-      <!-- <el-menu-item :index="item.url">
-        <i :class="item.icon"></i>
-        <span slot="title">{{item.title}}</span>
-      </el-menu-item> -->
+      <sideItem  v-for="sub in item.children" :key="sub.url" :item="sub"/>
     </el-submenu>
   </div>
 </template>
-  
-  
-  <script>
+
+<script>
 export default {
   name:'sideItem',
-  data() {
+  data(){
     return {
 
-    };
+    }
   },
-  props:['item'],
-  // methods: {},
+  props:['item'], //父传的参数
 }
 </script>
-  
+
+

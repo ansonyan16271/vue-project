@@ -1,5 +1,5 @@
-function initRoutes(data, sub) {
-    data.foreach(item => {
+export function initRoutes(data, sub) {
+    data.forEach(item => {
         const routesObj = {
             path: item.url,//请假审批
             name: item.name,
@@ -19,4 +19,3 @@ function initRoutes(data, sub) {
         }
     });
 }
-export default initRoutes
