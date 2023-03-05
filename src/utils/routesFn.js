@@ -3,6 +3,7 @@ export function initRoutes(data, sub) {
         const routesObj = {
             path: item.url,//请假审批
             name: item.name,
+            meta:{title:item.title},
             component: () => import(`../views/Home/${item.component}/index.vue`)
         }
         if (sub instanceof Array) {

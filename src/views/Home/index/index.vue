@@ -5,6 +5,7 @@
   </template>
   
   <script>
+  import { UserInfo } from '@/api/api';
   export default {
     data(){
       return {

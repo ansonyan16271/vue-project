@@ -29,8 +29,9 @@
 </template>
   
   <script>
-  import md5 from 'md5';
-  import {login} from '@/api/api';
+import md5 from "md5";
+import { login } from "@/api/api";
+import { setToken } from "@/utils/auth";
 
 export default {
   data() {
@@ -52,8 +53,8 @@ export default {
       rules: {
         //基本校验
         account: [
-          { required: true, message: '请输入用户名', trigger: 'blur' },
-          { min: 1, max: 8, message: '长度在 1到 8个字符', trigger: 'blur' }
+          { required: true, message: "请输入用户名", trigger: "blur" },
+          { min: 1, max: 8, message: "长度在 1到 8个字符", trigger: "blur" },
         ],
         //函数校验
         // account: [{ validator: validatePhone, trigger: "blur" }],
@@ -63,7 +64,7 @@ export default {
   },
   methods: {
     submitForm(formName) {
-      this.$refs[formName].validate(async valid => {
+      this.$refs[formName].validate(async (valid) => {
         if (valid) {
           //校验通过
           //alert("submit!");
@@ -81,6 +82,11 @@ export default {
 
           const res = await login(this.ruleForm);
           console.log(res);
+          let { code, data } = res.data;
+          if (code == 20000) {
+            setToken(data.token);
+            this.$router.push("/home");
+          }
         } else {
           //校验未通过
           console.log("error submit!!");

@@ -19,6 +19,7 @@ const routes = [
   {
     path: '/home',//布局
     name: 'home',
+    redirect: '/index',
     component: () => import('../layout/index.vue'),
 
   }

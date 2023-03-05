@@ -7,3 +7,8 @@ export const login = data => http.post('user/login', data);
 
 
 //退出
+
+
+//查询用户信息
+
+export const userInfo = () => http.get('user/info');
