@@ -1,6 +1,6 @@
 <template>
     <el-breadcrumb separator-class="el-icon-arrow-right">
-        <span><i class="el-icon-s-home"></i>当前位置:</span>
+        <span><i class="el-icon-s-home"></i>当前位置：</span>
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item>活动管理</el-breadcrumb-item>
         <el-breadcrumb-item>活动列表</el-breadcrumb-item>
