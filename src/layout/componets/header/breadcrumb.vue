@@ -1,11 +1,8 @@
 <template>
-    <el-breadcrumb separator-class="el-icon-arrow-right">
-        <span><i class="el-icon-s-home"></i>当前位置：</span>
-        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item>活动管理</el-breadcrumb-item>
-        <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-        <el-breadcrumb-item>活动详情</el-breadcrumb-item>
-    </el-breadcrumb>
+  <el-breadcrumb separator-class="el-icon-arrow-right">
+    <span><i class="el-icon-s-home"></i>当前位置：</span>
+    <el-breadcrumb-item v-for="v in items"><router-link :to="v.path">{{v.meta.title}}</router-link></el-breadcrumb-item>
+  </el-breadcrumb>
 </template>
     
     
@@ -13,16 +10,28 @@
 export default {
   data() {
     return {
+      items: [],
+    };
+  },
+  watch:{
+    $route(newValue,oldValue){
 
-
-
+      this.getBreadcrumb(newValue.matched);
     }
   },
+  mounted() {
+    
+    this.getBreadcrumb(this.$route.matched);
+  },
   methods: {
+    getBreadcrumb(matched){
+      if(matched?.[1].name=='index'){
+        matched = [{path:'/home',name:'home',meta:{title:'企业首页'}}];
+      }
+      this.items = matched;
+    } 
 
-
-
-  }
-}
+  },
+};
 </script>
   

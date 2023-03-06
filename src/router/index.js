@@ -20,6 +20,7 @@ const routes = [
     path: '/home',//布局
     name: 'home',
     redirect: '/index',
+    meta:{title:"企业首页"},
     component: () => import('../layout/index.vue'),
 
   }
