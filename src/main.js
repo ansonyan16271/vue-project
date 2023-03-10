@@ -12,6 +12,11 @@ Vue.use(ElementUI);
 
 Vue.config.productionTip = false
 
+//全局组件定义
+// Vue.component('myHello',{render(){return <h1>hello 111</h1>}});
+import './components/global/'
+
+
 new Vue({
   router,
   store,

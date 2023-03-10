@@ -45,4 +45,5 @@ export default [
         ]
       },
     {title:'企档案管理',url:'/fileManage',icon:'el-icon-menu',name:'fileManage',component:'fileManage'},
+    {title:'全局组件',url:'/test',icon:'el-icon-menu',name:'test',component:'test'},
 ]

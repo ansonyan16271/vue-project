@@ -7,7 +7,7 @@
   <script>
 import * as echarts from "echarts";
 import chinaMap from "@/assets/json/china.json";
-import { getMap } from "@/api/api";
+//import { getMap } from "@/api/api";
 
 export default {
   //props:['type'],//父传子
@@ -23,7 +23,7 @@ export default {
   },
   data() {
     return {
-      lists:[]
+      lists: [],
     };
   },
   computed: {
@@ -35,13 +35,7 @@ export default {
     },
   },
   async mounted() {
-    let res = await getMap();
-    let {code,data} = res.data;
-    if(code == '20000'){
-      this.lists = data;
-      this.initChart();
-    }
-    
+    this.initChart();
   },
   methods: {
     initChart() {
@@ -50,11 +44,11 @@ export default {
       echarts.registerMap("china", chinaMap);
 
       let option = {
-        series: [
-          {
-            type: "map",
-            mapType: "china",
-            label: {
+        geo: {
+          show: true,
+          type: "map",
+          map: "china",
+          label: {
               //标签文字样式
               show: true,
               color: "#fff",
@@ -64,26 +58,56 @@ export default {
               //区域样式
               areaColor: "#5e84fd",
               borderColor: "#fff",
-              fontSize: 12,
             },
-            data: this.lists
-          }
-        ],
-        visualMap: {
-          min: 1,
-          max: 100,
-          text: ["High", "Low"],
-          realtime: false,
-          calculable: true,
-          inRange: {
-            color: ["lightskyblue", "yellow", "orangered"],
-          },
         },
-        // geo:{
-        //   show:true,
-        //   type:'map',
-        //   map:'china'
-        // }
+        series: [
+          {
+            type:'effectScatter',
+            coordinateSystem:'geo',
+            symbol:'circle',
+            label:{
+              show:true,
+              position:'right',
+              formatter:'{b}'
+            },
+            symbolSize:function(value){
+              return value[2]
+            },
+            itemStyle:{
+              color:'yellow'
+            },
+            data:[
+              {
+                name:'重庆',
+                value:[106.54, 29.59,10],
+              },
+              {
+                name:'南昌',
+                value:[115.89, 28.68,20],
+              },
+              {
+                name:'秦皇岛',
+                value:[119.57, 39.95,30],
+              },
+              {
+                name:'牡丹江',
+                value:[129.58, 44.6,15],
+              },
+              {
+                name:'张家界',
+                value:[110.479191, 29.117096,25],
+              },
+              {
+                name:'乌鲁木齐',
+                value:[87.68, 43.77,20],
+              },
+              {
+                name:'大庆',
+                value:[125.03, 46.58,25],
+              },
+            ]
+          },
+        ],
       };
       myChart.setOption(option);
       //响应式

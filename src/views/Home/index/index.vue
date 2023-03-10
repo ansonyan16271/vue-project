@@ -4,10 +4,10 @@
     <div class="content-row">
       <el-row :gutter="10">
         <el-col :xs="24" :sm="24" :md="16" :lg="16">
-          <div class="bg-white bg-purple"><Chart /></div>
+          <div class="bg-white bg-purple" ><Chart height="300px"/></div>
         </el-col>
         <el-col :xs="24" :sm="24" :md="8" :lg="8">
-          <div class="bg-white bg-purple-light"><Chart /></div>
+          <div class="bg-white bg-purple-light" ><Chart height="300px"/></div>
         </el-col>
       </el-row>
     </div>
@@ -20,7 +20,7 @@
             <div class="content-row">
               <el-row>
                 <el-col :span="24" >
-                  <div class="bg-white bg-purple">11111</div>
+                  <div class="bg-white bg-purple"><Chart height="250px" :option="chartData2"/></div>
                 </el-col>
               </el-row>
             </div>
@@ -28,7 +28,7 @@
             <div class="content-row">
               <el-row>
                 <el-col :span="24" >
-                  <div class="bg-white bg-purple">11111</div>
+                  <div class="bg-white bg-purple"><Chart height="250px" :option="chartData2"/></div>
                 </el-col>
               </el-row>
             </div>
@@ -48,11 +48,11 @@
       <el-row :gutter="10">
         <el-col :xs="24" :sm="24" :md="12" :lg="12">
           <div class="bg-white bg-purple">
-            <Chart height="300px" :option="chartData1" />
+            <Chart height="500px" :option="chartData1" />
           </div>
         </el-col>
         <el-col :xs="24" :sm="24" :md="12" :lg="12">
-          <div class="bg-white bg-purple-light"><Chart height="300px" :option="chartData2"/></div>
+          <div class="bg-white bg-purple-light"><Map1 /></div>
         </el-col>
       </el-row>
     </div>
@@ -62,14 +62,15 @@
 </template>
   
   <script>
-import { Chart,Map} from "./components";
+import { Chart,Map,Map1} from "./components";
 
 
 
 export default {
   components: {
     Chart,
-    Map
+    Map,
+    Map1
   },
   data() {
     return {
