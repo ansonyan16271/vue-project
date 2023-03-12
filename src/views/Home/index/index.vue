@@ -76,7 +76,7 @@ export default {
     return {
       chartData1: {
         title: {
-          text: "Referer of a Website",
+          text: this.$t('message.chartTitle'),
           subtext: "Fake Data",
           left: "center",
         },

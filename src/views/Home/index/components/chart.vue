@@ -42,7 +42,9 @@ export default {
     },
   },
   data() {
-    return {};
+    return {
+      myChart:""
+    };
   },
   computed: {
     style() {
@@ -52,6 +54,12 @@ export default {
       };
     },
   },
+  //国际化监听
+  // watch:{
+  //   "$i18n.locale"(newValue,oldValue){
+  //     myChart.setOption(this.option);
+  //   }
+  // },
   mounted() {
     var myChart = echarts.init(this.$refs.chart);
     myChart.setOption(this.option);

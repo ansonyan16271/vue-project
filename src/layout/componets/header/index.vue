@@ -6,7 +6,9 @@
 
     <!-- 右侧按钮 -->
     <div class="right-menu">
-      <el-button type="danger" size="mini" icon="el-icon-share" @click="goBack">退出</el-button>
+      <lang />
+
+      <el-button type="danger" size="mini" icon="el-icon-share" @click="goBack">{{$t("message.exit")}}</el-button>
     </div>
   </div>
 </template>
@@ -15,9 +17,10 @@
 <script>
 import Breadcrumb from './breadcrumb.vue';
 import { removeToken } from '@/utils/auth';
+import Lang from './lang.vue'
 
 export default {
-  components: {Breadcrumb},
+  components: {Breadcrumb,Lang},
   data() {
     return {
 
