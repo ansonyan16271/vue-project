@@ -12,5 +12,9 @@ export default {
         "officeApply":"办公审批",
         "leaveApply":"请假审批",
         "approvalManage":"申请管理",
+        "officeManage":"办公审批",
+        "leaveManage":"请假审批",
+        "fileManage":"企业档案管理",
+        "test":"全局组件",
     }
 }

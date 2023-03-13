@@ -12,5 +12,9 @@ export default {
         "officeApply":"officeApply",
         "leaveApply":"leaveApply",
         "approvalManage":"approvalManage",
+        "officeManage":"officeManage",
+        "leaveManage":"leaveManage",
+        "fileManage":"fileManage",
+        "test":"test",
     }
 }

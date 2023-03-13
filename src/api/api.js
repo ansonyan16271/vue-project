@@ -15,3 +15,6 @@ export const userInfo = () => http.get('user/info');
 
 //地图数据 员工分布
 export const getMap = () => http.get('user/employ-map');
+
+//查询所有员工
+export const userEmployee = () => http.get('user/employee');
